@@ -1,0 +1,65 @@
+hashcat (v4.1.0) starting...
+
+* Device #1: WARNING! Kernel exec timeout is not disabled.
+             This may cause "CL_OUT_OF_RESOURCES" or related errors.
+             To disable the timeout, see: https://hashcat.net/q/timeoutpatch
+* Device #2: Intel's OpenCL runtime (GPU only) is currently broken.
+             We are waiting for updated OpenCL drivers from Intel.
+             You can use --force to override, but do not report related errors.
+OpenCL Platform #1: NVIDIA Corporation
+======================================
+* Device #1: GeForce GTX 960M, 1024/4096 MB allocatable, 5MCU
+
+OpenCL Platform #2: Intel(R) Corporation
+========================================
+* Device #2: Intel(R) HD Graphics 530, skipped.
+* Device #3: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz, skipped.
+
+Counting lines in ..\hash\1.hash...                                   Counted lines in ..\hash\1.hash...                                  Parsed Hashes: 1/1 (100.00%)                            Parsed Hashes: 1/1 (100.00%)                            Sorting hashes...                 Sorted hashes...                Removing duplicate hashes...                            Removed duplicate hashes...                           Sorting salts...                Sorted salts...               Generating bitmap tables...                           Generated bitmap tables...                          Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+
+Applicable optimizers:
+* Zero-Byte
+* Early-Skip
+* Not-Salted
+* Not-Iterated
+* Single-Hash
+* Single-Salt
+* Brute-Force
+* Raw-Hash
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+ATTENTION! Pure (unoptimized) OpenCL kernels selected.
+This enables cracking passwords and salts > length 32 but for the price of drastically reduced performance.
+If you want to switch to optimized OpenCL kernels, append -O to your commandline.
+
+Watchdog: Temperature abort trigger set to 90c
+
+Initializing device kernels and memory...                                         Initialized device kernels and memory...                                        The wordlist or mask that you are using is too small.
+This means that hashcat cannot use the full parallel power of your device(s).
+Unless you supply more work, your cracking speed will drop.
+For tips on supplying more work, see: https://hashcat.net/faq/morework
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit =>                                                  Approaching final keyspace - workload adjusted.
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [q]uit =>                                                  
+Session..........: hashcat
+Status...........: Cracked
+Hash.Type........: MD5
+Hash.Target......: 827ccb0eea8a706c4c34a16891f84e7b
+Time.Started.....: Sun Apr 08 21:40:54 2018 (0 secs)
+Time.Estimated...: Sun Apr 08 21:40:54 2018 (0 secs)
+Guess.Mask.......: ?d?d?d?d?d [5]
+Guess.Queue......: 1/1 (100.00%)
+Speed.Dev.#1.....: 89348.8 kH/s (0.14ms) @ Accel:128 Loops:10 Thr:1024 Vec:1
+Recovered........: 1/1 (100.00%) Digests, 1/1 (100.00%) Salts
+Progress.........: 100000/100000 (100.00%)
+Rejected.........: 0/100000 (0.00%)
+Restore.Point....: 0/10000 (0.00%)
+Candidates.#1....: 12345 -> 67646
+HWMon.Dev.#1.....: Temp: 53c Util: 57% Core:1097MHz Mem:2505MHz Bus:16
+
+Started: Sun Apr 08 21:40:51 2018
+                                  Stopped: Sun Apr 08 21:40:55 2018
