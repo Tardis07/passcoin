@@ -31,10 +31,12 @@ def rt_exe():
 		raise Exception("System Unknown")
 
 def hashlog(logread,logfile):
-	print os.getcwd()
 	f = open(logfile, 'w')
 	f.write(logread)
 	f.close()
+
+# hashcat_exec 函数有待改进，这里主要是缺乏一个可以控制交互类命令行程序的python框架
+# 找到了 -> pexpect
 
 def hashcat_exec(hashfile,outfile,hash_mask,hash_mode=3,hash_format=0,outfile_format=3):
 	os.chdir(os.getcwd() + rt_split() + 'hashcat-' + hashcat_version)
@@ -43,6 +45,7 @@ def hashcat_exec(hashfile,outfile,hash_mask,hash_mode=3,hash_format=0,outfile_fo
 	outfile = '..' + rt_split() + 'out' + rt_split() + outfile
 	com_line = '.' + rt_split() + rt_exe() + ' -a ' + str(hash_mode) + ' -m ' + str(hash_format) + ' --outfile-format ' + str(outfile_format) + ' -o ' + outfile + ' --potfile-disable ' + hashfile + ' ' + hash_mask
 	# com = commands.getoutput(com_line)
+	print com_line
 	com = os.popen(com_line)
 	logread = com.read()
 	hashlog(logread,debugfile)
@@ -51,6 +54,8 @@ def hashcat_exec(hashfile,outfile,hash_mask,hash_mode=3,hash_format=0,outfile_fo
 	# print com
 
 hashcat_exec('1.hash','1.out','?d?d?d?d?d')
+
+# r = requests.post('http://127.0.0.1:8888',data='{"BPM":"hash,pass,f"}')
 
 # if platform.system() == 'Windows':
 # 	hashcat_exec('hash\\1.hash','out\\1.out','?d?d?d?d?d')
